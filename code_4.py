@@ -3,7 +3,13 @@ import pandas as pd
 big_mac_file = './big-mac-full-index.csv'
 
 def get_big_mac_price_by_year(year,country_code):
-    pass # Remove this line and code your function
+    df = pd.read.csv(big_mac_file)
+    filtered_df = df[(df['year'] == year) & (df['iso_a3'] == coountry_code)]
+    mean_price = round(float(filtered_df['dollar_price'].mean()),2)
+
+    return mean_price
+    
+                
 
 def get_big_mac_price_by_country(country_code):
     pass # Remove this line and code your function
