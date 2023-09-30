@@ -20,10 +20,24 @@ def get_big_mac_price_by_country(country_code):
    
 
 def get_the_cheapest_big_mac_price_by_year(year):
-    pass # Remove this line and code your function
+    df = pd.read_csv(big_mac_file)
+    filtered_df = df[df['year'] == year]
+    cheapest_big_mac_price = filtered.df.loc['dollar_price'].idxmin()]
+
+    return cheapest_big_mac_price
+  
 
 def get_the_most_expensive_big_mac_price_by_year(year):
-    pass # Remove this line and code your function
+    df = pd.read_csv(big_mac_file)
+    filtered_df = df[df['year'] == year]
+    expensive_big_mac_price = filtered.df.loc['dollar_price'].idxmax()]
+
+    return expensive_big_mac_price
+    
 
 if __name__ == "__main__":
-    pass # Remove this line and code your user interface
+    print (f"mean Big Mac price in {country_code.upper()}
+    print
+    print
+    print
+    
