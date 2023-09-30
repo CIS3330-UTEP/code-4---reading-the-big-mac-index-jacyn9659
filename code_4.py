@@ -13,7 +13,7 @@ def get_big_mac_price_by_year(year,country_code):
 
 def get_big_mac_price_by_country(country_code):
     df = pd.read_csv(big_mac_file)
-    filtered_df = df[df['iso_a3'] == country_code]
+    filteredcounrty_df = df[df['iso_a3'] == country_code.upper]
     mean_price_country = round(float(filtered_df['dollar_price'].mean()),2)
 
     return mean_price_country 
