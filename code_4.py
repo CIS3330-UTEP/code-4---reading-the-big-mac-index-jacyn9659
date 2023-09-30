@@ -21,18 +21,22 @@ def get_big_mac_price_by_country(country_code):
 
 def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
-    filtered_df = df[df['date'] == year]
-    cheapest_big_mac_price = filtered_df.loc[filtered_df['dollar_price'].idxmin()]
+    query = f"(date <= '[year]-12-31' amd datte >= '{year}-01-01')"
+    min_df = df.query(query)
+    min_mac = min_df['doollar_price'].idxmin()
+    output = min_df[min_mac]
    
-    return cheapest_big_mac_price
+    return f"{output['name']}({output['iso_a3']}): ${round(output['dollar_price'], 2)}" 
   
 
 def get_the_most_expensive_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
-    filtered_df = df[df['date'] == year]
-    expensive_big_mac_price = filtered_df.loc[filtered_df['dollar_price'].idxmax()]
+    query = f"(date <= '[year]-01-01' amd datte >= '{year}-12-31')"
+    max_df = df.query(query)
+    max_mac = max_df['doollar_price'].idxmin()
+    output = max_df[max_mac]
 
-    return expensive_big_mac_price
+    return f"{output['name']}({output['iso_a3']}): ${round(output['dollar_price'], 2)}" 
     
 
 if __name__ == "__main__":
