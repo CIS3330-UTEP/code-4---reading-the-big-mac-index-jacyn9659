@@ -21,7 +21,7 @@ def get_big_mac_price_by_country(country_code):
 
 def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
-    query = f"(date <= '[year]-12-31' amd datte >= '{year}-01-01')"
+    query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
     min_df = df.query(query)
     min_mac = min_df['doollar_price'].idxmin()
     output = min_df[min_mac]
@@ -31,7 +31,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
 
 def get_the_most_expensive_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
-    query = f"(date <= '[year]-01-01' amd datte >= '{year}-12-31')"
+    query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
     max_df = df.query(query)
     max_mac = max_df['doollar_price'].idxmin()
     output = max_df[max_mac]
