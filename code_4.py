@@ -23,7 +23,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
     filtered_df = df[df['date'] == year]
     cheapest_big_mac_price = filtered_df.loc[filtered_df['dollar_price'].idxmin()]
-
+   
     return cheapest_big_mac_price
   
 
