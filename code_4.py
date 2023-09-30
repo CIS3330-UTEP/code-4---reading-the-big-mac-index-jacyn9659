@@ -32,7 +32,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
 def get_the_most_expensive_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
     query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
-    fd_year = df.query(query)
+    df_year = df.query(query)
     max_df = df_Year['dollar_price'].idxmax()
     max_mac = df.loc[max_df]
     expensive_big_mac_price = (f"{max_mac['name']}({max_mac['iso_a3']}): ${round(max_mac['dollar_price'],2)}")
