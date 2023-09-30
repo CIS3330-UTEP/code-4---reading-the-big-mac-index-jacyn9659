@@ -12,7 +12,9 @@ def get_big_mac_price_by_year(year,country_code):
                 
 
 def get_big_mac_price_by_country(country_code):
-    pass # Remove this line and code your function
+    df = pd.read_csv(big_mac_file)
+    filtered_df = df[df['iso_a3'] == country_code]
+   
 
 def get_the_cheapest_big_mac_price_by_year(year):
     pass # Remove this line and code your function
