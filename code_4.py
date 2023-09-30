@@ -4,7 +4,7 @@ big_mac_file = './big-mac-full-index.csv'
 
 def get_big_mac_price_by_year(year,country_code):
     df = pd.read_csv(big_mac_file)
-    filtered_df = df[(df['date'] == year) & (df['iso_a3'] == country_code)]
+    filtered_df = df[(df['date'].str[:4] == str(year))) & (df['iso_a3'] == country_code.upper())]
     mean_price = round(float(filtered_df['dollar_price'].mean()),2)
 
     return mean_price
