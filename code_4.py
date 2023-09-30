@@ -23,7 +23,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
     query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
     min_df = df.query(query)
-    min_mac = min_df['doollar_price'].idxmin()
+    min_mac = min_df['dollar_price'].idxmin()
     output = min_df[min_mac]
    
     return f"{output['name']}({output['iso_a3']}): ${round(output['dollar_price'], 2)}" 
@@ -33,7 +33,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
     query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
     max_df = df.query(query)
-    max_mac = max_df['doollar_price'].idxmin()
+    max_mac = max_df['dollar_price'].idxmin()
     output = max_df[max_mac]
 
     return f"{output['name']}({output['iso_a3']}): ${round(output['dollar_price'], 2)}" 
