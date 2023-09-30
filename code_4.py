@@ -36,8 +36,12 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     
 
 if __name__ == "__main__":
-    print (f"mean Big Mac price in {country_code.upper()}
-    print
-    print
-    print
+    country = input("enter country code: ")
+    year = int(input(" enter year: "))
+    get_big_mac_price_by_year(year, country)
+    get_big_mac_price_by_country(country)
+    get_the_cheapest_big_mac_price_by_year(year)
+    get_the_expensive_big_mac_by_price(year)
+    
+    
     
