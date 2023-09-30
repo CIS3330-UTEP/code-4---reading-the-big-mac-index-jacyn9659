@@ -34,7 +34,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     query = f"date >= '{year}-01-01' and date <= '{year}-12-31'"
     max_df = df.query(query)
     max_mac = max_df['dollar_price'].idxmin()
-    expensive_big_mac_price = (f"(max_mac['name']}({max_mac['iso_a3']}): ${round(max_mac['dollar_price'],2)}")
+    expensive_big_mac_price = (f"{max_mac['name']}({max_mac['iso_a3']}): ${round(max_mac['dollar_price'],2)}")
 
     return expensive_big_mac_price
     
